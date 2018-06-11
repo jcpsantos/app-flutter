@@ -16,7 +16,7 @@ class ConverterApp extends StatelessWidget{
       title: 'Unidade de Conversão',
       theme: ThemeData(
         textTheme: Theme.of(context).textTheme.apply(
-          bodyColor: Colors.white,
+          bodyColor: Colors.black,
           displayColor: Colors.grey[600],
         ),
         primaryColor: Colors.grey[500],

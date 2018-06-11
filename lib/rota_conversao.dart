@@ -68,11 +68,11 @@ class _RotaConversaoState extends State<RotaConversao>{
   String _formato(double conversion){
     var  outputNum = conversion.toStringAsPrecision(7);
     if (outputNum.contains('.') && outputNum.endsWith('0')){
-      var i = outputNum.length -1;
-      while (outputNum[i] == 0){
+      var i = outputNum.length - 1;
+      while (outputNum[i] == '0'){
         i -= 1;
       }
-      outputNum = outputNum.substring(0, i+1);
+      outputNum = outputNum.substring(0, i + 1);
     }
     if (outputNum.endsWith('.')){
       return outputNum.substring(0, outputNum.length - 1);
@@ -164,7 +164,7 @@ class _RotaConversaoState extends State<RotaConversao>{
             decoration: InputDecoration(
               labelStyle: Theme.of(context).textTheme.display1,
               errorText: _validacaoError ? 'Entrada de dados inválidos' : null,
-              labelText: 'Input',
+              labelText: 'Entrada',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(0.0),
               ),
@@ -196,7 +196,7 @@ class _RotaConversaoState extends State<RotaConversao>{
               style: Theme.of(context).textTheme.display1,
             ),
             decoration: InputDecoration(
-              labelText: 'Output',
+              labelText: 'Saída',
               labelStyle: Theme.of(context).textTheme.display1,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(0.0),
