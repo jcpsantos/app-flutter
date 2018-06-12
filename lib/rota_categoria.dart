@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_conversao_v2/categoria.dart';
 import 'package:flutter_conversao_v2/unidade.dart';
+import 'package:flutter_conversao_v2/backdrop.dart';
+import 'package:flutter_conversao_v2/categoria_home.dart';
+import 'package:flutter_conversao_v2/unidade_conversao.dart';
 
-final _backgroundColor = Colors.indigo[100];
 
 class RotaCategoria extends StatefulWidget{
   const RotaCategoria();
@@ -13,6 +15,8 @@ class RotaCategoria extends StatefulWidget{
 }
 
 class _RotaCategoriaState extends State<RotaCategoria>{
+  Categoria _categoriaDefault;
+  Categoria _categoriaAtual;
   final _categorias = <Categoria>[];
 
   static const _categoriaNomes = <String>[
@@ -72,12 +76,21 @@ class _RotaCategoriaState extends State<RotaCategoria>{
         icone: Icons.camera,
         unidades: _trazerListaUnidade(_categoriaNomes[i]),
       ));
+      if (i == 0){
+        _categoriaDefault = categoria;
+      }
+      _categorias.add(categoria);
     }
   }
 
   Widget _categoriaDeWidgets(){
     return ListView.builder(
-      itemBuilder: (BuildContext context, int index) => _categorias[index],
+      itemBuilder: (BuildContext context, int index){
+        return CategoriaHome(
+          categoria: _categorias[index],
+          onTap: _onCategoriaTap,
+        )
+      }
       itemCount: _categorias.length,
     );
   }
@@ -96,29 +109,25 @@ class _RotaCategoriaState extends State<RotaCategoria>{
   @override
   Widget build(BuildContext context) {
 
-    final listView = Container(
-      color: _backgroundColor,
-      padding: EdgeInsets.symmetric(horizontal: 8.0),
+    final listView = Padding(
+      padding: EdgeInsets.only(
+        left: 8.0,
+        right: 8.0,
+        bottom: 48.0,
+      ),
       child: _categoriaDeWidgets(),
     );
 
-    final appBar = AppBar(
-      elevation: 0.0,
-      title: Text(
-        'Unidade de Conversão',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 30.0,
-        ),
-      ),
-      centerTitle: true,
-      backgroundColor: _backgroundColor,
-    );
-
-    // TODO: implement build
-    return Scaffold(
-      appBar: appBar,
-      body: listView,
+    return Backdrop(
+      categoriaAtual:
+      _categoriaAtual == null ? _categoriaDefault : _categoriaAtual,
+      frontPanel: _categoriaAtual == null
+      ? UnidadeConversao(categoria: _categoriaDefault)
+      : UnidadeConversao(categoria: _categoriaAtual),
+      backPanel: listView,
+      frontTitulo: Text ('Unidade Conversão'),
+      backTitulo: Text ('Selecione a Categoria'),
     );
   }
+
 }
