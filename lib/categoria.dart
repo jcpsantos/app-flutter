@@ -5,14 +5,13 @@ import 'package:flutter_conversao_v2/unidade.dart';
 import 'package:flutter_conversao_v2/rota_conversao.dart';
 
 
-class Categoria extends StatelessWidget{
+class Categoria{
   final String nome;
   final ColorSwatch cor;
   final IconData icone;
   final List<Unidade> unidades;
 
   const Categoria({
-    Key key,
     @required this.nome,
     @required this.cor,
     @required this.icone,

@@ -70,12 +70,12 @@ class _RotaCategoriaState extends State<RotaCategoria>{
   void initState(){
     super.initState();
     for (var i = 0; i < _categoriaNomes.length; i++){
-      _categorias.add(Categoria(
+      var categoria = Categoria(
         nome: _categoriaNomes[i],
         cor: _baseCor[i],
         icone: Icons.camera,
         unidades: _trazerListaUnidade(_categoriaNomes[i]),
-      ));
+      );
       if (i == 0){
         _categoriaDefault = categoria;
       }
@@ -83,16 +83,36 @@ class _RotaCategoriaState extends State<RotaCategoria>{
     }
   }
 
-  Widget _categoriaDeWidgets(){
-    return ListView.builder(
+  void _onCategoriaTap(Categoria categoria) {
+    setState(() {
+      _categoriaAtual = categoria;
+    });
+  }
+
+  Widget _categoriaDeWidgets(Orientation deviceOrientacao){
+    if (deviceOrientacao == Orientation.portrait){
+      return ListView.builder(
       itemBuilder: (BuildContext context, int index){
         return CategoriaHome(
           categoria: _categorias[index],
           onTap: _onCategoriaTap,
-        )
-      }
+        );
+      },
       itemCount: _categorias.length,
-    );
+      );
+    } else {
+      return GridView.count(
+        crossAxisCount: 2,
+        childAspectRatio: 3.0,
+        children: _categorias.map((Categoria c) {
+          return CategoriaHome(
+            categoria: c,
+            onTap: _onCategoriaTap,
+          );
+        }).toList(),
+      );
+    }
+    
   }
 
   //Retorna uma lista de unidades.
@@ -108,14 +128,14 @@ class _RotaCategoriaState extends State<RotaCategoria>{
 
   @override
   Widget build(BuildContext context) {
-
+    assert(debugCheckHasMediaQuery(context));
     final listView = Padding(
       padding: EdgeInsets.only(
         left: 8.0,
         right: 8.0,
         bottom: 48.0,
       ),
-      child: _categoriaDeWidgets(),
+      child: _categoriaDeWidgets(MediaQuery.of(context).orientation),
     );
 
     return Backdrop(

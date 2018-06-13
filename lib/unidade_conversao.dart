@@ -19,11 +19,12 @@ class UnidadeConversao extends StatefulWidget{
 
 class _UnidadeConversaoState extends State<UnidadeConversao>{
   Unidade _entValor;
-  Unit _saidaValor;
+  Unidade _saidaValor;
   double _inputValor;
   String _converterValor = '';
   List<DropdownMenuItem> _unidadeMenuItems;
   bool _validacaoComError = false;
+  final _inputKey = GlobalKey(debugLabel: 'inputTexto');
 
   @override
   void initState() {
@@ -65,6 +66,9 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
       _entValor = widget.categoria.unidades[0];
       _saidaValor = widget.categoria.unidades[1];
     });
+    if (_inputValor != null) {
+      _atualizarConversao();
+    }
   }
 
   String _formato(double conversao) {
@@ -146,7 +150,6 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
       ),
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Theme(
-        // This sets the color of the [DropdownMenuItem]
         data: Theme.of(context).copyWith(
               canvasColor: Colors.grey[50],
             ),
@@ -173,6 +176,7 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TextField(
+            key: _inputKey,
             style: Theme.of(context).textTheme.display1,
             decoration: InputDecoration(
               labelStyle: Theme.of(context).textTheme.display1,
@@ -222,7 +226,6 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
     );
 
     final converter = Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         input,
         seta,
@@ -232,7 +235,20 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
 
      return Padding(
       padding: _padding,
-      child: converter,
+      child: OrientationBuilder(
+        builder: (BuildContext context, Orientation orientation){
+          if (orientation == Orientation.portrait){
+            return converter;
+          }else{
+            return Center(
+              child: Container(
+                width: 450.0,
+                child: converter,
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 

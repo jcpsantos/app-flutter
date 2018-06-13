@@ -89,7 +89,8 @@ class _BackdropTitulo extends AnimatedWidget{
             opacity: CurvedAnimation(
               parent: animation,
               curve: Interval(0.5, 1.0),
-            ).value
+            ).value,
+            child: frontTitulo,
           ),
         ],
       ),
@@ -108,7 +109,7 @@ class Backdrop extends StatefulWidget{
     @required this.categoriaAtual,
     @required this.frontPanel,
     @required this.backPanel,
-    @required this.frontTitulo
+    @required this.frontTitulo,
     @required this.backTitulo,
   })  : assert(categoriaAtual != null),
         assert(frontPanel != null),
@@ -221,6 +222,7 @@ class _BackdropState extends State<Backdrop>
               onVerticalDragUpdate: _handleDragAtualizado,
               onVerticalDragEnd: _handleDragEnd,
               titulo: Text(widget.categoriaAtual.nome,
+              ),
               child: widget.frontPanel,
             ),
           ),
