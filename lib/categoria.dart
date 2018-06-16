@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-//import 'package:flutter_conversao/rota_categoria.dart';
 import 'package:flutter_conversao_v2/unidade.dart';
-import 'package:flutter_conversao_v2/rota_conversao.dart';
 
 
 class Categoria{

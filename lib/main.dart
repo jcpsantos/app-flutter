@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_conversao/categoria.dart';
 import 'package:flutter_conversao_v2/rota_categoria.dart';
 
 //A função que é chamada quando main.dart é executado.
