@@ -35,20 +35,13 @@ class CategoriaHome extends StatelessWidget{
               children: [
                 Padding(
                   padding: EdgeInsets.all(16.0),
-                  child: Icon(
-                    categoria.icone,
-                    size: 60.0,
-                    color: Colors.white,
+                  child: Image.asset(categoria.icone),
                   ),
-                ),
                 Center(
                   child: Text(
                     categoria.nome,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                    ),
+                    style: Theme.of(context).textTheme.headline,
                   ),
                 ),
               ],

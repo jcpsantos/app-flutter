@@ -1,0 +1,238 @@
+{
+    " Comprimento " : [
+      {
+        " name " : " Meter " ,
+        " conversão " : 1.0 ,
+        " description " : " O comprimento do caminho percorrido pela luz no vácuo durante um intervalo de tempo de 1 / 299,792,458 de segundo " ,
+        " base_unit " : true
+      },
+      {
+        " name " : " Mile (disfarçado de Inch) " ,
+        " conversão " : 0.000621371 ,
+        " description " : " Dê-me uma polegada e eu levarei uma milha! "
+      },
+      {
+        " nome " : " mão " ,
+        " conversão " : 9.8425197 ,
+        " description " : " Usado para medir a altura dos cavalos. Igual a um terço de um pé. "
+      },
+      {
+        " name " : " Light-nanossegundo " ,
+        " conversão " : 3.333 ,
+        " description " : " A velocidade da luz é de aproximadamente um pé por nanossegundo. "
+      },
+      {
+        " nome " : " bloco de Manhattan " ,
+        " conversão " : 0.0125 ,
+        " description " : " O comprimento de um bloco norte-sul no centro de Manhattan. "
+      },
+      {
+        " nome " : " Torre Eiffel " ,
+        " conversão " : 0.0030864 ,
+        " description " : " Uma torre icônica em Paris. "
+      },
+      {
+        " name " : " Smoot " ,
+        " conversão " : 0.5882353 ,
+        " description " : " Este é o tamanho de Oliver Smoot. "
+      },
+      {
+        " nome " : " Sheppey " ,
+        " conversão " : 0.0007143 ,
+        " descrição " : " A distância mais próxima em que as ovelhas permanecem pitorescas " 
+      },
+      {
+        " nome " : " Potrzebie " ,
+        " conversão " : 379.7949107 ,
+        " description " : " A espessura da edição 26 da revista Mad. Esta unidade foi criada por Donald Knuth. "
+      }
+    ],
+    " Área " : [
+      {
+        " name " : " Meter ao quadrado " ,
+        " conversão " : 1.0 ,
+        " descrição " : " 1 metro de comprimento e 1 metro de largura " ,
+        " base_unit " : true
+      },
+      {
+        " nome " : " Biscoito Bourbon " ,
+        " conversão " : 546.4480874 ,
+        " description " : " Um biscoito britânico em que todas as marcas têm aparentemente 61x30mm de tamanho. Uma vez sugerido que é digno de ser uma unidade de medida do SI. "
+      },
+      {
+        " nome " : " campo de futebol americano " ,
+        " conversão " : 0.0001869 ,
+        " description " : " A área de um campo de futebol americano, incluindo as endzones. "
+      },
+      {
+        " nome " : " campo de futebol canadense " ,
+        " conversão " : 0.0001227 ,
+        " description " : " A área de um campo de futebol canadense, incluindo as endzones. "
+      },
+      {
+        " nome " : " Morgen " ,
+        " conversão " : 0.0001 ,
+        " description " : " A quantidade de terra que pode ser cultivada por uma pessoa atrás de um boi nas primeiras horas do dia. Isso é bastante vago, especialmente se você estiver conversando com o boi em vez de trabalhar. "
+      }
+    ],
+    " Volume " : [
+      {
+        " nome " : " metro cúbico " ,
+        " conversão " : 1.0 ,
+        " description " : " Um cubo com cada aresta de um metro de comprimento " ,
+        " base_unit " : true
+      },
+      {
+        " nome " : " Super pé " ,
+        " conversão " : 423.7288136 ,
+        " descrição " : " 1 polegada x 1 pé x 1 pé. Usado para medir madeira, mas você pode usá-lo para medir o que quiser - é super! "
+      },
+      {
+        " nome " : " Cord " ,
+        " conversão " : 0.2762431 ,
+        " description " : " Uma quantidade de madeira de lenha bem cortada e arrumada. "
+      },
+      {
+        " nome " : " piscina olímpica " ,
+        " conversão " : 0.0004 ,
+        " description " : " Uma grande piscina! "
+      },
+      {
+        " nome " : " Abacate " ,
+        " conversão " : 5000.0 ,
+        " description " : " O volume de um abacate médio, semente amaldiçoada incluída. "
+      }
+    ],
+    " Massa " : [
+      {
+        " nome " : " Quilograma " ,
+        " conversão " : 1.0 ,
+        " description " : " A massa de um bloco gigante de metal denominado Protótipo Internacional do Quilograma " ,
+        " base_unit " : true
+      },
+      {
+        " name " : " Burrito da Missão Menor " ,
+        " conversão " : 2.05 ,
+        " description " : " A massa de um super burrito menor do Mission District em San Francisco, CA. "
+      },
+      {
+        " nome " : " Burrito Maior Missão " ,
+        " conversão " : 1.25 ,
+        " description " : " A massa de um super burrito maior do Mission District em San Francisco, CA. "
+      },
+      {
+        " nome " : " Saco de cimento " ,
+        " conversão " : 0.0234742 ,
+        " description " : " A massa de um saco de cimento na indústria do concreto e do petróleo. Não confundir com um saco de cimento dos tempos antigos. "
+      },
+      {
+        " name " : " Cemweight curto " ,
+        " conversão " : 0.0220463 ,
+        " description " : " Também conhecido como central, isso equivale a 100 libras. "
+      },
+      {
+        " name " : " Long hundredweight " ,
+        " conversão " : 0.0196843 ,
+        " description " : " Esta unidade está obsoleta a partir de 1985, mas a incluímos para ser compatível com versões anteriores. "
+      }
+    ],
+    " Hora " : [
+      {
+        " name " : " Second " ,
+        " conversão " : 1.0 ,
+        " description " : " Dá-me um segundo enquanto eu procuro isto ... " ,
+        " base_unit " : true
+      },
+      {
+        " nome " : " Microcentury " ,
+        " conversão " : 0.0003168 ,
+        " description " : " A duração de uma palestra. Sinta-se à vontade para sair se ela passar. "
+      },
+      {
+        " nome " : " Nanocentury " ,
+        " conversão " : 0.3169572 ,
+        " description " : " Perto o suficiente para pi segundos, este foi considerado um bom tempo de resposta para produtos de usuários nos anos 60. "
+      },
+      {
+        " nome " : " Microfortnight " ,
+        " conversão " : 0.8267196 ,
+        " description " : " Supõe-se que esta seja uma divertida unidade de medida. "
+      },
+      {
+        " nome " : " Torradas sujas " ,
+        " conversão " : 0.2 ,
+        " description " : " O número de torradas que seriam contaminadas assumindo que uma nova torrada é descartada consecutivamente e não coletada em cinco segundos, violando a regra dos cinco segundos. "
+      },
+      {
+        " nome " : " Quinzena " ,
+        " conversão " : 0.0000033068 ,
+        " description " : " A maneira inequívoca de denotar 2 semanas de tempo. Nada de absurdo 'bi-semanal'. "
+      },
+      {
+        " name " : " New York minute " ,
+        " conversão " : 0.02 ,
+        " description " : " A quantidade de tempo entre o semáforo ficando verde e o carro atrás de você buzinando. "
+      }
+    ],
+    " Armazenamento digital " : [
+      {
+        " name " : " Megabyte " ,
+        " conversão " : 1.0 ,
+        " description " : " Isso foi considerado muito espaço no passado. " ,
+        " base_unit " : true
+      },
+      {
+        " nome " : " CD-ROM " ,
+        " conversão " : 0.0014285712 ,
+        " description " : " Uau, duas cópias da Encyclopedia Britannica podem caber em tanto espaço! Por que você quer que duas cópias permaneçam para serem verificadas. "
+      },
+      {
+        " nome " : " Biblioteca do Congresso " ,
+        " conversão " : 0.00000001 ,
+        " description " : " Todo o texto da Biblioteca do Congresso ocupa dez terabytes. Você pode carregar tudo em seus bolsos! "
+      },
+      {
+        " name " : " Nibble " ,
+        " conversão " : 2000000.0 ,
+        " description " : " Metade de um byte. Por favor, ria. "
+      },
+      {
+        " nome " : " Byte " ,
+        " conversão " : 1000000.0 ,
+        " description " : " Um byte consiste em oito bits. "
+      },
+      {
+        " nome " : " Bentobox " ,
+        " conversão " : 83333.33 ,
+        " description " : " Um bentobox vale 96 bits. Em outros contextos, vale a pena um almoço, mas estamos falando de armazenamento de dados, não armazenamento de estômago. "
+      }
+    ],
+    " Energia " : [
+      {
+        " nome " : " Joule " ,
+        " conversão " : 1.0 ,
+        " description " : " Esta é a unidade de medida do SI para energia. " ,
+        " base_unit " : true
+      },
+      {
+        " name " : " Gram Calorie " ,
+        " conversão " : 0.239006 ,
+        " description " : " A quantidade de energia necessária para elevar um grama de água em 1 grau Celcius. "
+      },
+      {
+        " nome " : " Kilocalorie " ,
+        " conversão " : 0.000239006 ,
+        " description " : " Também conhecido como Calorie com um C maiúsculo, isso é o que aparece em muitos rótulos nutricionais. Sim, você está comendo quilocalorias, não poucas calorias. "
+      },
+      {
+        " name " : " Foot-pound " ,
+        " conversão " : 0.737562 ,
+        " description " : " A energia necessária para elevar uma libra a uma distância de um pé. Útil para saber quando estiver pescando bolos de massa recém-assados ​​do peitoril da janela abaixo do seu. "
+      },
+      {
+        " name " : " QUE hora ?! " ,
+        " conversão " : 0.0000000125 ,
+        " description " : " Quando você está atrasado e todas as células do seu corpo gastam o máximo de energia possível para chegar ao seu destino. "
+      }
+    ]
+  }

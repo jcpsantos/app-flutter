@@ -8,7 +8,7 @@ import 'package:flutter_conversao_v2/rota_conversao.dart';
 class Categoria{
   final String nome;
   final ColorSwatch cor;
-  final IconData icone;
+  final String icone;
   final List<Unidade> unidades;
 
   const Categoria({

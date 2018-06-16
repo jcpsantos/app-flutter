@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter_conversao_v2/unidade.dart';
 import 'package:flutter_conversao_v2/categoria.dart';
+import 'dart:async';
+import 'package:flutter_conversao_v2/api.dart';
 
 const _padding = EdgeInsets.all(16.0);
 
@@ -86,11 +88,18 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
     return outputNum;
   }
 
-  void _atualizarConversao() {
-    setState(() {
-      _converterValor =
-          _formato(_inputValor * (_saidaValor.conversao / _entValor.conversao));
-    });
+ Future<void>  _atualizarConversao() async {
+    if (widget.categoria.nome == apiCategoria['nome']){
+      final api = Api();
+      final conversao =  await api.convert(apiCategoria['rota'], _inputValor.toString(), _entValor.nome, _saidaValor.nome);
+      setState(() {
+              _converterValor = _formato(conversao);
+            });
+    }else{
+      setState(() {
+              _converterValor=_formato(_inputValor * (_saidaValor.conversao / _entValor.conversao));
+            });
+    }
   }
 
   void _atualizarInputValor(String input) {

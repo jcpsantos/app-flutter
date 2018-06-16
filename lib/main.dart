@@ -15,6 +15,7 @@ class ConverterApp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       title: 'Unidade de Conversão',
       theme: ThemeData(
+        fontFamily: 'Raleway',
         textTheme: Theme.of(context).textTheme.apply(
           bodyColor: Colors.black,
           displayColor: Colors.grey[600],

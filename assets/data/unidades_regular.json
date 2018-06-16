@@ -1,0 +1,207 @@
+{
+  " Comprimento " : [
+    {
+      " name " : " Metro " ,
+      " conversão " : 1.0 ,
+      " base_unit " : true
+    },
+    {
+      " nome " : " Milímetro " ,
+      " conversão " : 1000.0
+    },
+    {
+      " nome " : " Centímetro " ,
+      " conversão " : 100.0
+    },
+    {
+      " nome " : " Quilômetro " ,
+      " conversão " : 0.001
+    },
+    {
+      " nome " : " Polegada " ,
+      " Conversão " : 39.3701
+    },
+    {
+      " nome " : " Pé " ,
+      " Conversão " : 3.28084
+    },
+    {
+      " name " : " Jardas " ,
+      " conversão " : 1.09361
+    },
+    {
+      " name " : " Milhas " ,
+      " conversão " : 0.000621371
+    }
+  ],
+  " Área " : [
+    {
+      " name " : " Metros quadrado " ,
+      " conversão " : 1.0 ,
+      " base_unit " : true
+    },
+    {
+      " nome " : " Quilômetro quadrado " ,
+      " conversão " : 0.000001
+    },
+    {
+      " nome " : " polegada quadrada " ,
+      " Conversão " : 1550.0
+    },
+    {
+      " nome " : " Pé quadrado " ,
+      " Conversão " : 10.7639
+    },
+    {
+      " name " : " Jarda Quadrada " ,
+      " Conversão " : 1.19599
+    },
+    {
+      " nome " : " Acre " ,
+      " conversão " : 0.000247105
+    },
+    {
+      " nome " : " Hectare " ,
+      " conversão " : 0.0001
+    }
+  ],
+  " Volume " : [
+    {
+      " nome " : " Metro cúbico " ,
+      " conversão " : 1.0 ,
+      " base_unit " : true
+    },
+    {
+      " name " : " Xícara " ,
+      " conversão " : 4166.67
+    },
+    {
+      " nome " : " Colher de sopa " ,
+      " conversão " : 67628.0
+    },
+    {
+      " name " : " Colher de chá " ,
+      " Conversão " : 202884.0
+    },
+    {
+      " nome " : " Copo imperial " ,
+      " Conversão " : 3519.51
+    },
+    {
+      " nome " : " Colher de sopa imperial " ,
+      " conversão " : 56312.13673
+    },
+    {
+      " nome " : " Colher de chá imperial " ,
+      " conversão " : 168936.41019
+    }
+  ],
+  " Massa " : [
+    {
+      " nome " : " Quilograma " ,
+      " conversão " : 1.0 ,
+      " base_unit " : true
+    },
+    {
+      " nome " : " Grama " ,
+      " conversão " : 1000.0
+    },
+    {
+      " nome " : " Tonelada " ,
+      " conversão " : 0.00110231
+    },
+    {
+      " nome " : " Tonelada métrica " ,
+      " conversão " : 0.001
+    }
+  ],
+  " Hora " : [
+    {
+      " name " : " Segundos " ,
+      " conversão " : 1.0 ,
+      " base_unit " : true
+    },
+    {
+      " nome " : " Milisegundo " ,
+      " conversão " : 1000.0
+    },
+    {
+      " nome " : " Minuto " ,
+      " conversão " : 0.0166666666666667
+    },
+    {
+      " name " : " Horas " ,
+      " conversão " : 0.0002777777777778
+    },
+    {
+      " name " : " Dia " ,
+      " conversão " : 0.00001157407407
+    },
+    {
+      " name " : " Semana " ,
+      " conversão " : 0.000001653439153
+    },
+    {
+      " nome " : " Quinzena " ,
+      " conversão " : 0.000000826719576
+    }
+  ],
+  " Digital " : [
+    {
+      " name " : " Megabyte " ,
+      " conversão " : 1.0 ,
+      " base_unit " : true
+    },
+    {
+      " name " : " Megabit " ,
+      " conversão " : 8.0
+    },
+    {
+      " nome " : " Mebibyte " ,
+      " conversão " : 0.953674
+    },
+    {
+      " nome " : " Byte " ,
+      " conversão " : 1000000.0
+    },
+    {
+      " name " : " Kilobyte " ,
+      " conversão " : 1000.0
+    },
+    {
+      " name " : " Gigabyte " ,
+      " conversão " : 0.001
+    },
+    {
+      " name " : " Terabyte " ,
+      " conversão " : 0.000001
+    },
+    {
+      " name " : " Petabyte " ,
+      " conversão " : 0.000000001
+    }
+  ],
+  " Energia " : [
+    {
+      " nome " : " Joule " ,
+      " conversão " : 1.0 ,
+      " base_unit " : true
+    },
+    {
+      " nome " : " Kilojoule " ,
+      " conversão " : 0.001
+    },
+    {
+      " nome " : " Calorias " ,
+      " conversão " : 0.239006
+    },
+    {
+      " name " : " Kilocaloria (Caloria) " ,
+      " conversão " : 0.000239006
+    },
+    {
+      " nome " : " Unidade térmica britânica " ,
+      " conversão " : 0.000947817
+    }
+  ]
+}

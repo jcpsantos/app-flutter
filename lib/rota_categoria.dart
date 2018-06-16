@@ -4,6 +4,9 @@ import 'package:flutter_conversao_v2/unidade.dart';
 import 'package:flutter_conversao_v2/backdrop.dart';
 import 'package:flutter_conversao_v2/categoria_home.dart';
 import 'package:flutter_conversao_v2/unidade_conversao.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'package:flutter_conversao_v2/api.dart';
 
 
 class RotaCategoria extends StatefulWidget{
@@ -18,17 +21,6 @@ class _RotaCategoriaState extends State<RotaCategoria>{
   Categoria _categoriaDefault;
   Categoria _categoriaAtual;
   final _categorias = <Categoria>[];
-
-  static const _categoriaNomes = <String>[
-    'Comprimento',
-    'Area',
-    'Volume',
-    'Massa',
-    'Tempo',
-    'Armazenamento digital',
-    'Energia',
-    'Moeda',
-  ];
 
   static const _baseCor = <ColorSwatch>[
     ColorSwatch(0xFF6AB7A8,{
@@ -66,21 +58,83 @@ class _RotaCategoriaState extends State<RotaCategoria>{
     }),
   ];
 
+ static const _icones = <String>[
+    'assets/icone/comprimento.png',
+    'assets/icone/area.png',
+    'assets/icone/volume.png',
+    'assets/icone/massa.png',
+    'assets/icone/hora.png',
+    'assets/icone/digital.png',
+    'assets/icone/energia.png',
+    'assets/icone/moeda.png',
+  ];
+ 
+
   @override
-  void initState(){
-    super.initState();
-    for (var i = 0; i < _categoriaNomes.length; i++){
-      var categoria = Categoria(
-        nome: _categoriaNomes[i],
-        cor: _baseCor[i],
-        icone: Icons.camera,
-        unidades: _trazerListaUnidade(_categoriaNomes[i]),
-      );
-      if (i == 0){
-        _categoriaDefault = categoria;
-      }
-      _categorias.add(categoria);
+  Future<void> didChangeDependencies() async{
+    super.didChangeDependencies();
+    if (_categorias.isEmpty){
+      await _retrieveLocalCategorias();
+      await _retrieveApiCategoria();
     }
+  }
+
+  Future<void> _retrieveLocalCategorias() async {
+    final json = DefaultAssetBundle
+        .of(context)
+        .loadString('assets/data/unidades_regular.json');
+    final data = JsonDecoder().convert(await json);
+    if (data is! Map) {
+      throw ('Dados recuperados da API não é um Map');
+    }
+    var categoriaIndex = 0;
+    data.keys.forEach((key) {
+      final List<Unidade> unidades =
+          data[key].map<Unidade>((dynamic data) => Unidade.fromJson(data)).toList();
+
+      var categoria = Categoria(
+        nome: key,
+        unidades: unidades,
+        cor: _baseCor[categoriaIndex],
+        icone: _icones[categoriaIndex],
+      );
+      setState(() {
+        if (categoriaIndex == 0) {
+          _categoriaDefault = categoria;
+        }
+        _categorias.add(categoria);
+      });
+      categoriaIndex += 1;
+    });
+  }
+
+  Future<void> _retrieveApiCategoria() async{
+    setState(() {
+          _categorias.add(Categoria(
+            nome: apiCategoria['nome'],
+            unidades: [],
+            cor: _baseCor.last,
+            icone: _icones.last,
+          ));
+        });
+
+        final api = Api();
+        final jsonUnidades = await api.getUnidades(apiCategoria['rota']);
+        if (jsonUnidades != null){
+          final unidades = <Unidade>[];
+          for (var unidade in jsonUnidades){
+            unidades.add(Unidade.fromJson(unidade));
+          }
+          setState(() {
+                      _categorias.removeLast();
+                      _categorias.add(Categoria(
+                        nome: apiCategoria['nome'],
+                        unidades: unidades,
+                        cor: _baseCor.last,
+                        icone: _icones.last,
+                      ));
+                    });
+        }
   }
 
   void _onCategoriaTap(Categoria categoria) {
@@ -115,19 +169,18 @@ class _RotaCategoriaState extends State<RotaCategoria>{
     
   }
 
-  //Retorna uma lista de unidades.
-  List<Unidade> _trazerListaUnidade(String categoriaNome){
-    return List.generate(10, (int i){
-      i += 1;
-      return Unidade(
-        nome: '$categoriaNome Unidade $i',
-        conversao: i.toDouble(),
-      );
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+     if (_categorias.isEmpty) {
+      return Center(
+        child: Container(
+          height: 180.0,
+          width: 180.0,
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     assert(debugCheckHasMediaQuery(context));
     final listView = Padding(
       padding: EdgeInsets.only(
