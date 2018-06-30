@@ -147,9 +147,12 @@ class _RotaCategoriaState extends State<RotaCategoria>{
     if (deviceOrientacao == Orientation.portrait){
       return ListView.builder(
       itemBuilder: (BuildContext context, int index){
+        var _categoria = _categorias[index];
         return CategoriaHome(
-          categoria: _categorias[index],
-          onTap: _onCategoriaTap,
+          categoria: _categoria,
+          onTap:  _categoria.nome == apiCategoria['nome'] && _categoria.unidades.isEmpty
+                    ? null
+                    : _onCategoriaTap,
         );
       },
       itemCount: _categorias.length,

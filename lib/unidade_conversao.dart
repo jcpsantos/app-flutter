@@ -27,6 +27,7 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
   List<DropdownMenuItem> _unidadeMenuItems;
   bool _validacaoComError = false;
   final _inputKey = GlobalKey(debugLabel: 'inputTexto');
+  bool _mostrarErrorUI = false;
 
   @override
   void initState() {
@@ -38,7 +39,6 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
   @override
   void didUpdateWidget(UnidadeConversao old) {
     super.didUpdateWidget(old);
-    // We update our [DropdownMenuItem] units when we switch [Categories].
     if (old.categoria != widget.categoria) {
       _criarDropdownMenuItems();
       _setDefaults();
@@ -92,9 +92,13 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
     if (widget.categoria.nome == apiCategoria['nome']){
       final api = Api();
       final conversao =  await api.convert(apiCategoria['rota'], _inputValor.toString(), _entValor.nome, _saidaValor.nome);
-      setState(() {
+      if (conversao == null){
+        _mostrarErrorUI = true;
+      }else{
+        setState(() {
               _converterValor = _formato(conversao);
             });
+      }
     }else{
       setState(() {
               _converterValor=_formato(_inputValor * (_saidaValor.conversao / _entValor.conversao));
@@ -179,6 +183,38 @@ class _UnidadeConversaoState extends State<UnidadeConversao>{
 
    @override
   Widget build(BuildContext context) {
+    if (widget.categoria.unidades == null ||
+    (widget.categoria.nome == apiCategoria['nome'] && _mostrarErrorUI)){
+      return SingleChildScrollView(
+        child: Container(
+          margin: _padding,
+          padding: _padding,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16.0),
+            color: widget.categoria.cor['error'],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.error_outline,
+                size: 180.0,
+                color: Colors.white,
+              ),
+              Text(
+                "Oh não! Não podemos conectar agora! Que Chato!!!",
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headline.copyWith(
+                      color: Colors.white,
+                    ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
     final input = Padding(
       padding: _padding,
       child: Column(

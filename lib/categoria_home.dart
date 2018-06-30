@@ -12,22 +12,21 @@ class CategoriaHome extends StatelessWidget{
   const CategoriaHome({
     Key key,
     @required this.categoria,
-    @required this.onTap,
+     this.onTap,
   }) : assert(categoria != null),
-       assert(onTap != null),
        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
+      color: onTap == null ? Color.fromRGBO(50, 50, 50, 0.2) : Colors.transparent,
       child: Container(
         height: _rowHeight,
         child: InkWell(
           borderRadius: _borderRadius,
           highlightColor: categoria.cor['highlight'],
           splashColor: categoria.cor['splash'],
-          onTap: () => onTap(categoria),
+          onTap: () => onTap == null ? null : () => onTap(categoria),
           child: Padding(
             padding: EdgeInsets.all(8.0),
             child: Row(
